@@ -9,6 +9,11 @@ Table of Contents
 * Usage
 * Contributors
 
+### Youtube Video + Website pdf
+
+https://www.youtube.com/watch?v=M7PngRDAmlk
+https://sway.cloud.microsoft/IJPzChfAqR4zDemX?authoringPlay=true&publish
+
 ### Installation process
 1. Ensure the most up-to-date versions of Java are installed on your personal device.
 2. Download program through the Iteration2 zip folder and save to personal device. Ensure to extract all files from the zip folder.
