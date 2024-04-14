@@ -34,8 +34,7 @@ The code is structured into several classes. The main ones of note are:
 - java Main
 
 ### Contributors
-- Ilyaas Hussein 101230436: Parsing input file and parsing data from packets.
+- Ilyaas Hussein 101230436
 - Abduallah Aldabibi 101239527
-- Firas El-Ezzi 101239531: Handled Thread execution and ensured concurrency within the program.
-
-- Copyright 2024 Group2 SYSC3303.
+- Firas El-Ezzi 101239531
+- Copyright 2024 Group 185 COMP 3005
