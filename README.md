@@ -2,6 +2,10 @@
 
 #### v1.0.0 2024-02-24
 
+# NOTE: IF YOU RUN INTO ANY GLITCHES WHILE TRYING OUT THE CODE, TRY LOGGING OUT THEN LOGGING BACK IN SINCE INTELLIJ GLITCHES OUT SOMETIMES DUE TO THE COMPLEXITY OF THE UI.
+# SOME SWING METHODS HAVE KNOWN BUGS THAT HAVE NOT BEEN PATCHED YET EITHER.
+
+
 Table of Contents
 * Installation process
 * Introduction
@@ -11,6 +15,11 @@ Table of Contents
 
 ### YouTube Video (Main Video)
 https://www.youtube.com/watch?v=fQoCfYL-u6w
+
+### YouTube Video 2 (Full Working Demo of Code)
+https://youtu.be/UcCRz5IhFV0
+
+
 
 ### Our Website Report
 https://sway.cloud.microsoft/IJPzChfAqR4zDemX?authoringPlay=true&publish
