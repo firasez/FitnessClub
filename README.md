@@ -9,9 +9,11 @@ Table of Contents
 * Usage
 * Contributors
 
-### Youtube Video
-
+### YouTube Video (Main Video)
 https://www.youtube.com/watch?v=M7PngRDAmlk
+
+### YouTube Video (Detailed demo video)
+https://youtu.be/iJGi302q5nI
 
 ### Our Website Report
 https://sway.cloud.microsoft/IJPzChfAqR4zDemX?authoringPlay=true&publish
