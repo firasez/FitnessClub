@@ -122,6 +122,8 @@ public class Model {
                     + ")";
             String createWorkoutClassQuery = "CREATE TABLE IF NOT EXISTS workout_classes ("
                     + "class_name VARCHAR(50) PRIMARY KEY,"
+                    + "room_id INT,"
+                    + "FOREIGN KEY (room_id) REFERENCES rooms(room_number),"
                     + "h_8_9 BOOLEAN DEFAULT FALSE,"
                     + "h_9_10 BOOLEAN DEFAULT FALSE,"
                     + "h_10_11 BOOLEAN DEFAULT FALSE,"
@@ -1283,27 +1285,29 @@ public class Model {
     public void unbookRoom(int roomNum, ArrayList<String> times) {
         try {
             formConnection();
-            String updateQuery = "UPDATE rooms SET ";
+
+            // Update the room schedule
+            String updateRoomQuery = "UPDATE rooms SET ";
             for (int i = 0; i < times.size(); i++) {
                 if (i > 0) {
-                    updateQuery += ", ";
+                    updateRoomQuery += ", ";
                 }
                 String[] hours = times.get(i).split("-");
                 String startHour = hours[0];
                 String endHour = hours[1];
-                updateQuery += "h_" + startHour + "_" + endHour + " = FALSE";
+                updateRoomQuery += "h_" + startHour + "_" + endHour + " = FALSE";
             }
-            updateQuery += " WHERE room_number = ?";
-
-            PreparedStatement updateStatement = connection.prepareStatement(updateQuery);
-            updateStatement.setInt(1, roomNum);
-            updateStatement.executeUpdate();
+            updateRoomQuery += " WHERE room_number = ?";
+            PreparedStatement updateRoomStatement = connection.prepareStatement(updateRoomQuery);
+            updateRoomStatement.setInt(1, roomNum);
+            updateRoomStatement.executeUpdate();
 
             closeConnection();
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
+
     public void editMemberDetails(int memberId, double bodyWeight, double height, String gender, int age, double goalWeight) {
         try {
             formConnection();
@@ -1527,15 +1531,14 @@ public class Model {
         try {
             formConnection();
 
-
             String selectQuery = "SELECT class_name FROM workout_classes WHERE " +
+                    "room_id IS NOT NULL AND (" +
                     "h_8_9 = FALSE OR h_9_10 = FALSE OR h_10_11 = FALSE OR h_11_12 = FALSE OR " +
                     "h_12_13 = FALSE OR h_13_14 = FALSE OR h_14_15 = FALSE OR h_15_16 = FALSE OR " +
-                    "h_16_17 = FALSE OR h_17_18 = FALSE";
+                    "h_16_17 = FALSE OR h_17_18 = FALSE)";
 
             PreparedStatement selectStatement = connection.prepareStatement(selectQuery);
             ResultSet resultSet = selectStatement.executeQuery();
-
 
             while (resultSet.next()) {
                 String className = resultSet.getString("class_name");
@@ -1549,15 +1552,17 @@ public class Model {
         return availableWorkoutClasses;
     }
 
+
     public void scheduleWorkoutClass(String className, int roomNumber, ArrayList<String> times) {
         try {
             formConnection();
             for (String time : times) {
-
-                String updateClassQuery = "INSERT INTO workout_classes (class_name, " + getTimeColumn(time) + ") VALUES (?, TRUE) "
-                        + "ON CONFLICT (class_name) DO UPDATE SET " + getTimeColumn(time) + " = TRUE";
+                String updateClassQuery = "INSERT INTO workout_classes (class_name, room_id, " + getTimeColumn(time) + ") VALUES (?, ?, TRUE) "
+                        + "ON CONFLICT (class_name) DO UPDATE SET " + getTimeColumn(time) + " = TRUE, room_id = ?";
                 PreparedStatement updateClassStatement = connection.prepareStatement(updateClassQuery);
                 updateClassStatement.setString(1, className);
+                updateClassStatement.setInt(2, roomNumber);
+                updateClassStatement.setInt(3, roomNumber);
                 updateClassStatement.executeUpdate();
 
                 System.out.println("Workout class '" + className + "' scheduled successfully in room " + roomNumber + " at " + time);
@@ -1568,6 +1573,41 @@ public class Model {
             e.printStackTrace();
         }
     }
+
+
+    public void unscheduleWorkoutClass(int roomNum) {
+        try {
+            formConnection();
+
+            // Construct the update query to set all time slots to FALSE and roomId to null for the given room number
+            String updateClassQuery = "UPDATE workout_classes SET "
+                    + "room_id = NULL, "
+                    + "h_8_9 = FALSE, "
+                    + "h_9_10 = FALSE, "
+                    + "h_10_11 = FALSE, "
+                    + "h_11_12 = FALSE, "
+                    + "h_12_13 = FALSE, "
+                    + "h_13_14 = FALSE, "
+                    + "h_14_15 = FALSE, "
+                    + "h_15_16 = FALSE, "
+                    + "h_16_17 = FALSE, "
+                    + "h_17_18 = FALSE "
+                    + "WHERE room_id = ?";
+
+            // Prepare and execute the update statement
+            PreparedStatement updateClassStatement = connection.prepareStatement(updateClassQuery);
+            updateClassStatement.setInt(1, roomNum);
+            updateClassStatement.executeUpdate();
+
+            System.out.println("Workout classes in room number " + roomNum + " unscheduled successfully.");
+
+            closeConnection();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+
 
 
 
