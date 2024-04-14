@@ -1551,6 +1551,7 @@ public class View extends JFrame {
                 }
 
                 c1.unbookRoom(roomNum, selectedTimes);
+                c1.unscheduleWorkoutClass(roomNum);
                 frame.dispose();
                 openUnbookRoomPage(username);
             }
