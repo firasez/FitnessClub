@@ -9,9 +9,11 @@ Table of Contents
 * Usage
 * Contributors
 
-### Youtube Video + Website pdf
+### Youtube Video
 
 https://www.youtube.com/watch?v=M7PngRDAmlk
+
+### Our Website Report
 https://sway.cloud.microsoft/IJPzChfAqR4zDemX?authoringPlay=true&publish
 
 ### Installation process
