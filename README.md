@@ -10,13 +10,7 @@ Table of Contents
 * Contributors
 
 ### YouTube Video (Main Video)
-https://www.youtube.com/watch?v=M7PngRDAmlk
-
-### YouTube Video (ER Diagram)
-https://youtu.be/iJGi302q5nI
-
-### YouTube Vide0 (DDL+DML EXPLANATION)
-https://youtu.be/PJ5o2J0pKK0
+https://www.youtube.com/watch?v=fQoCfYL-u6w
 
 ### Our Website Report
 https://sway.cloud.microsoft/IJPzChfAqR4zDemX?authoringPlay=true&publish
@@ -50,3 +44,9 @@ The code is structured into several classes. The main ones of note are:
 - Abduallah Aldabibi 101239527
 - Firas El-Ezzi 101239531
 - Copyright 2024 Group 185 COMP 3005
+
+### NOTE
+SINCE THE SIZE OF THE CODE IS SO BIG, IT MAY TAKE LONGER THAN EXPECTED TO RUN THE CODE, AND GOD FORBID SOME FEATURES MAY NOT DISPLAY AS INTENDED ON SOME SYSTEMS.
+ALSO, FOR BEST EXPERIENCE, TRY TO AVOID USING THE SQL FILES, AND JUST SIGN UP AND SIGN IN WITH YOUR OWN ACCOUNTS  WHEN YOU RUN THE CODE :)
+
+
