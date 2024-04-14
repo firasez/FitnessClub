@@ -1560,12 +1560,6 @@ public class Model {
                 updateClassStatement.setString(1, className);
                 updateClassStatement.executeUpdate();
 
-
-                String updateRoomQuery = "UPDATE rooms SET " + getTimeColumn(time) + " = FALSE WHERE room_number = ?";
-                PreparedStatement updateRoomStatement = connection.prepareStatement(updateRoomQuery);
-                updateRoomStatement.setInt(1, roomNumber);
-                updateRoomStatement.executeUpdate();
-
                 System.out.println("Workout class '" + className + "' scheduled successfully in room " + roomNumber + " at " + time);
             }
 
@@ -1709,13 +1703,3 @@ public class Model {
     }
 
 }
-
-
-
-
-
-
-
-
-
-
