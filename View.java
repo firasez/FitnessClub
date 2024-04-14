@@ -140,7 +140,7 @@ public class View extends JFrame {
     }
 
     protected void openStaffWelcomePage(String name) {
-        
+
         staffWelcomePage = new JFrame("Welcome " + name);
         staffWelcomePage.setLayout(new BorderLayout());
 
@@ -637,7 +637,7 @@ public class View extends JFrame {
 
             c1.logFood(Model.getIdByUsername(username), foodName, Integer.parseInt(cals), protein, carbs, sugar, fat);
             frame.dispose();
-            openWelcomePage(username);
+//            openWelcomePage(username);
         });
 
 
@@ -1912,6 +1912,3 @@ public class View extends JFrame {
         frame.setVisible(true);
     }
 }
-
-
-
