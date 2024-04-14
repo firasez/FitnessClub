@@ -235,4 +235,7 @@ public class Controller {
     public boolean unbookTrainer(int username){
         return model1.unbookTrainer(username);
     }
+    public void unscheduleWorkoutClass(int roomNum){
+        model1.unscheduleWorkoutClass(roomNum);
+    }
 }
