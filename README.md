@@ -12,8 +12,11 @@ Table of Contents
 ### YouTube Video (Main Video)
 https://www.youtube.com/watch?v=M7PngRDAmlk
 
-### YouTube Video (Detailed demo video)
+### YouTube Video (ER Diagram)
 https://youtu.be/iJGi302q5nI
+
+### YouTube Vide0 (DDL+DML EXPLANATION)
+https://youtu.be/PJ5o2J0pKK0
 
 ### Our Website Report
 https://sway.cloud.microsoft/IJPzChfAqR4zDemX?authoringPlay=true&publish
